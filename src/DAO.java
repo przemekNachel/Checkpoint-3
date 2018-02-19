@@ -1,12 +1,14 @@
+package src;
+
 import java.sql.*;
 import java.util.ArrayList;
 
-public class DAO {
+class DAO {
 
     private Connection c = null;
 
     private void connectToDatabase() throws SQLException {
-        c = DriverManager.getConnection("jdbc:sqlite:library.db");
+        c = DriverManager.getConnection("jdbc:sqlite:library.db?foreign_keys=on;");
         c.setAutoCommit(true);
     }
 

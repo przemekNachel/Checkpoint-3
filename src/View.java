@@ -1,7 +1,9 @@
+package src;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class View {
+class View {
 
     public String getUserInput() {
         Scanner input = new Scanner(System.in);

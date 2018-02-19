@@ -1,6 +1,8 @@
+package src;
+
 import java.util.ArrayList;
 
-public class Controller {
+class Controller {
 
     View view = new View();
     DAO dao = new DAO();
