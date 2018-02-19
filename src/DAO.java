@@ -76,18 +76,19 @@ class DAO {
         return resultToString(books);
     }
 
-    void addBook(ArrayList<String> data) {
+    Book makeBook(ArrayList<String> data) {
+        return new Book(Integer.parseInt(data.get(0)), data.get(1), data.get(2), data.get(3), Integer.parseInt(data.get(4)), Integer.parseInt(data.get(5)), data.get(6).equals("1") ? true : false);
+    }
+
+    void addBook(Book book) {
         String query = "INSERT INTO Books VALUES (";
-        for (int i = 0; i < 7; i++) {
-            if (i == 0 || i > 3) {
-                query += data.get(i);
-            } else {
-                query += "\"" + data.get(i) + "\"";
-            }
-            if (i != 6) {
-                query += ", ";
-            }
-        }
+        query += book.getIsbn() + ", ";
+        query += "\"" + book.getAuthor() + "\", ";
+        query += "\"" + book.getTitle() + "\", ";
+        query += "\"" + book.getPublisher() + "\", ";
+        query += book.getYear() + ", ";
+        query += book.getPrice() + ", ";
+        query += book.isEbook() ? 1 : 0;
         query += ");";
         sendQuery(query);
     }

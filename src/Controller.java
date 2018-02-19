@@ -49,7 +49,8 @@ class Controller {
     }
 
     private void addBook() {
-        dao.addBook(view.addBook());
+        Book book = dao.makeBook(view.addBook());
+        dao.addBook(book);
     }
 
     private void editBook() {
