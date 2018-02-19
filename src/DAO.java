@@ -59,7 +59,7 @@ class DAO {
         return stringBuilder.toString();
     }
 
-    public String getAllBooks() {
+    String getAllBooks() {
         String query = "SELECT title FROM Books";
         ArrayList<String> collums = new ArrayList<>();
         collums.add("title");

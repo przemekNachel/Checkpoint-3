@@ -15,7 +15,7 @@ class Controller {
     private static final String SEE_BOOKS_BY_AUTHOR = "6";
     private static final String EXIT = "0";
 
-    public void start() {
+    void start() {
 
         boolean terminateProgram = false;
         while (!terminateProgram) {
