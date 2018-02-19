@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Controller {
 
     View view = new View();
@@ -61,7 +63,7 @@ public class Controller {
     }
 
     private void seeBooks() {
-
+        view.seeBooks(dao.getAllBooks());
     }
 
     private void seeBooksByAuthor() {
