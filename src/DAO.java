@@ -73,18 +73,22 @@ class DAO {
         ArrayList<String> collums = new ArrayList<>();
         collums.add("title");
         ArrayList<ArrayList<String>> books = sendQuery(query, collums);
-
         return resultToString(books);
     }
 
-    void addToDB(ArrayList<String> data, String table) {
-        String query = "INSERT INTO " + table + " VALUES (";
-        query += "2, " + "\"e\", " + "\"e\", " + "\"e\", " + "2, " + "2, " + "2";
+    void addBook(ArrayList<String> data) {
+        String query = "INSERT INTO Books VALUES (";
+        for (int i = 0; i < 7; i++) {
+            if (i == 0 || i > 3) {
+                query += data.get(i);
+            } else {
+                query += "\"" + data.get(i) + "\"";
+            }
+            if (i != 6) {
+                query += ", ";
+            }
+        }
         query += ");";
         sendQuery(query);
-    }
-
-    void addBook(ArrayList<String> data) {
-        addToDB(data, "Books");
     }
 }

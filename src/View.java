@@ -27,8 +27,8 @@ class View {
     }
 
     ArrayList<String> addBook() {
-        String[] fields = new String[]{"Title: ", "Author: ", "Publisher: ", "Publication year: ",
-        "Price: ", "Type (1. e-book, 2. paper book): ", "ISBN: "};
+        String[] fields = new String[]{"ISBN: ", "Author: ", "Title: ", "Publisher: ", "Publication year: ",
+        "Price: ", "Type (1. e-book, 2. paper book): "};
         ArrayList<String> data = new ArrayList<>();
         clearScreen();
         for (String field : fields) {
