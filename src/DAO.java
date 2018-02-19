@@ -8,7 +8,7 @@ class DAO {
     private Connection c = null;
 
     private void connectToDatabase() throws SQLException {
-        c = DriverManager.getConnection("jdbc:sqlite:library.db?foreign_keys=on;");
+        c = DriverManager.getConnection("jdbc:sqlite:library.db");
         c.setAutoCommit(true);
     }
 
@@ -48,6 +48,15 @@ class DAO {
         return result;
     }
 
+    private void sendQuery(String query) {
+        try {
+            getConnection().createStatement().executeUpdate(query);
+        } catch (Exception e) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+    }
+
     private String resultToString(ArrayList<ArrayList<String>> result) {
         StringBuilder stringBuilder = new StringBuilder();
         for (ArrayList<String> row : result) {
@@ -66,5 +75,16 @@ class DAO {
         ArrayList<ArrayList<String>> books = sendQuery(query, collums);
 
         return resultToString(books);
+    }
+
+    void addToDB(ArrayList<String> data, String table) {
+        String query = "INSERT INTO " + table + " VALUES (";
+        query += "2, " + "\"e\", " + "\"e\", " + "\"e\", " + "2, " + "2, " + "2";
+        query += ");";
+        sendQuery(query);
+    }
+
+    void addBook(ArrayList<String> data) {
+        addToDB(data, "Books");
     }
 }

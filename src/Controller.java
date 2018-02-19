@@ -49,7 +49,7 @@ class Controller {
     }
 
     private void addBook() {
-
+        dao.addBook(view.addBook());
     }
 
     private void editBook() {

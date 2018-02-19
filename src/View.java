@@ -25,4 +25,16 @@ class View {
         System.out.println(books);
         getUserInput();
     }
+
+    ArrayList<String> addBook() {
+        String[] fields = new String[]{"Title: ", "Author: ", "Publisher: ", "Publication year: ",
+        "Price: ", "Type (1. e-book, 2. paper book): ", "ISBN: "};
+        ArrayList<String> data = new ArrayList<>();
+        clearScreen();
+        for (String field : fields) {
+            System.out.print(field);
+            data.add(getUserInput());
+        }
+        return data;
+    }
 }
