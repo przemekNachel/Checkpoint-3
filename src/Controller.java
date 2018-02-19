@@ -53,7 +53,6 @@ class Controller {
     }
 
     private void editBook() {
-
     }
 
     private void deleteBook() {
