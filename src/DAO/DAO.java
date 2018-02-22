@@ -1,9 +1,11 @@
-package src;
+package DAO;
+
+import Models.Book;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-class DAO {
+public class DAO {
 
     private Connection c = null;
 
@@ -12,7 +14,7 @@ class DAO {
         c.setAutoCommit(true);
     }
 
-    private Connection getConnection() throws SQLException, ClassNotFoundException {
+    private Connection getConnection() throws SQLException {
         if (c != null) {
             try {
                 c.close();
@@ -68,7 +70,7 @@ class DAO {
         return stringBuilder.toString();
     }
 
-    String getAllBooks() {
+    public String getAllBooks() {
         String query = "SELECT title FROM Books";
         ArrayList<String> collums = new ArrayList<>();
         collums.add("title");
@@ -76,11 +78,11 @@ class DAO {
         return resultToString(books);
     }
 
-    Book makeBook(ArrayList<String> data) {
-        return new Book(Integer.parseInt(data.get(0)), data.get(1), data.get(2), data.get(3), Integer.parseInt(data.get(4)), Integer.parseInt(data.get(5)), data.get(6).equals("1") ? true : false);
+    public Book makeBook(ArrayList<String> data) {
+        return new Book(Integer.parseInt(data.get(0)), data.get(1), data.get(2), data.get(3), Integer.parseInt(data.get(4)), Integer.parseInt(data.get(5)), data.get(6).equals("1"));
     }
 
-    void addBook(Book book) {
+    public void addBook(Book book) {
         String query = "INSERT INTO Books VALUES (";
         query += book.getIsbn() + ", ";
         query += "\"" + book.getAuthor() + "\", ";

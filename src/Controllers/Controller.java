@@ -1,11 +1,15 @@
-package src;
+package Controllers;
+
+import View.*;
+import DAO.*;
+import Models.*;
 
 import java.util.ArrayList;
 
-class Controller {
+public class Controller {
 
-    View view = new View();
-    DAO dao = new DAO();
+    private View view = new View();
+    private DAO dao = new DAO();
 
     private static final String ADD_BOOK = "1";
     private static final String EDIT_BOOK = "2";
@@ -15,7 +19,7 @@ class Controller {
     private static final String SEE_BOOKS_BY_AUTHOR = "6";
     private static final String EXIT = "0";
 
-    void start() {
+    public void start() {
 
         boolean terminateProgram = false;
         while (!terminateProgram) {

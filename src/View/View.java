@@ -1,11 +1,11 @@
-package src;
+package View;
 
 import java.util.Scanner;
 import java.util.ArrayList;
 
-class View {
+public class View {
 
-    String getUserInput() {
+    public String getUserInput() {
         Scanner input = new Scanner(System.in);
         return input.nextLine();
     }
@@ -14,19 +14,19 @@ class View {
         System.out.print("\033\143");
     }
 
-    void showMainMenu() {
+    public void showMainMenu() {
         clearScreen();
         System.out.println("JERZY'S HUMBLE HOME LIBRARY\n\n1. Add book\n2. Edit book\n3. Delete book");
         System.out.println("4. Search\n5. See all books\n6. See books by author\n\n0. Exit");
     }
 
-    void seeBooks(String books) {
+    public void seeBooks(String books) {
         clearScreen();
         System.out.println(books);
         getUserInput();
     }
 
-    ArrayList<String> addBook() {
+    public ArrayList<String> addBook() {
         String[] fields = new String[]{"ISBN: ", "Author: ", "Title: ", "Publisher: ", "Publication year: ",
         "Price: ", "Type (1. e-book, 2. paper book): "};
         ArrayList<String> data = new ArrayList<>();
